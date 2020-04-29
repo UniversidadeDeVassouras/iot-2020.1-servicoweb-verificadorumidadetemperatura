@@ -1,5 +1,5 @@
 class Cliente:
-    def __init__(self, nome):
+    def __init__(self, nome=None):
         self._id = id
         self._nome = nome
     
@@ -14,3 +14,9 @@ class Cliente:
 
     def set_nome(self, nome):
         self._nome = nome
+
+    def toDict(self):
+        return {
+            'id' : self._id,
+            'nome' : self._nome
+        }
