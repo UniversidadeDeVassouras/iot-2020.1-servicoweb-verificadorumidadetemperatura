@@ -1,11 +1,11 @@
 from application.model.entity.temp import Temperatura
 from datetime import date
+from application import temperatura_list
 
 class TempDAO:
 
-    def __init__(self, cliente):
-        self._lista_temperatura = []
-        self._cliente = cliente
+    def __init__(self):
+        self._lista_temperatura = temperatura_list
 
     #temperatura máxima do dia corrente informada por um cliente x
     def find_temp_max(self, cliente):

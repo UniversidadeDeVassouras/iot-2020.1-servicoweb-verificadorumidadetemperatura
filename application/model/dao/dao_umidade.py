@@ -1,11 +1,12 @@
 from application.model.entity.umidade import Umidade
 from application.model.entity.cliente import Cliente
 from datetime import date
+from application import umidade_list
 
 class UmidadeDAO:
     
     def __init__(self):
-        self._lista_umidade = []
+        self._lista_umidade = umidade_list
 
     def inserir(self, umi):
         umi.set_id(len(self._lista_umidade) + 1)
