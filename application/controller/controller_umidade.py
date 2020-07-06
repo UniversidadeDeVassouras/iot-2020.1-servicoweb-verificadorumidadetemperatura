@@ -6,7 +6,7 @@ from application import app
 from flask import request, jsonify
 
 @app.route('/umidade', methods=["POST"])
-def umidade():
+def inserir_umidade():
     valor = request.json['valor']
     id_cliente = request.json['client']['id']
     cliente = ClienteDAO().buscar_por_id(id_cliente)
