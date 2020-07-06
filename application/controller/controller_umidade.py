@@ -15,3 +15,4 @@ def umidade():
         return jsonify(umidade_cadastrada.toDict())
     else:
         raise(Exception("Client não encontrado!"))
+    
