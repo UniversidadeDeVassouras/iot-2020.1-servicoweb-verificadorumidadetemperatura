@@ -15,4 +15,17 @@ def inserir_umidade():
         return jsonify(umidade_cadastrada.toDict())
     else:
         raise(Exception("Client não encontrado!"))
+
+@app.route('/umidade', methods=["GET"])
+def buscar_umidade_media():
+    tipo = request.args['tipo']
+    id_cliente = request.args['client']
+    cliente = ClienteDAO().buscar_por_id(int(id_cliente))
+    temperatura = None
+    if tipo.lower() == "media":
+        media = UmidadeDAO().media_umidades(cliente)
+        return jsonify(media)
+    return '', 204
+
+    
     

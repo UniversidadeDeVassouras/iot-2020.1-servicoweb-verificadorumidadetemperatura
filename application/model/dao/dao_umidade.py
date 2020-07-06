@@ -15,10 +15,10 @@ class UmidadeDAO:
         return umi
 
     def pertence_dia_corrente(self, umidade):
-        return date.today() == temp.get_data()
+        return date.today() == umidade.get_data()
 
     def verificar_relacao(self, umidade, cliente):
-        return umi.get_cliente().get_id() == cliente.get_id()
+        return umidade.get_cliente().get_id() == cliente.get_id()
     
     # nome do método tem demonstrar O QUÊ ele faz. Mas NUNCA o COMO ele faz
     #SOe o nome do método estiver muito grande, significa que o método está com muitas responsabilidade
@@ -30,5 +30,5 @@ class UmidadeDAO:
         for umi in self._lista_umidade:
             if self.pertence_dia_corrente(umi) and self.verificar_relacao(umi, cliente):
                 media += umi.get_valor()
-        media /= len(_lista_umidade)
-        return media
+        media /= len(self._lista_umidade)
+        return {"media": media, "data": date.today()}
