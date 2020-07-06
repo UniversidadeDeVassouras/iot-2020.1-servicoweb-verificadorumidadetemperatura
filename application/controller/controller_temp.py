@@ -6,12 +6,12 @@ from application import app
 from flask import request, jsonify
 
 @app.route('/temperatura', methods=["POST"])
-def umidade():
+def temperatura():
     valor = request.json['valor']
     id_cliente = request.json['client']['id']
     cliente = ClienteDAO().buscar_por_id(id_cliente)
     if cliente != None:
-        temperatura_cadastrada = TempDAO().inserir(Umidade(valor, cliente))
+        temperatura_cadastrada = TempDAO().inserir(Temperatura(valor, cliente))
         return jsonify(temperatura_cadastrada.toDict())
     else:
         raise(Exception("Client não encontrado!"))
